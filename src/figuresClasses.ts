@@ -25,11 +25,14 @@ export class Triangle implements Figure {
     this.color = color;
 
     if (a <= 0 || b <= 0 || c <= 0) {
-      throw new Error('error');
+      throw new Error('Side lengths must be greater than 0');
     }
 
     if (c >= a + b || a >= c + b || b >= a + c) {
-      throw new Error('error 2');
+      throw new Error(
+        'Triangle inequality violated: ' +
+          'the longest side must be less than the sum of the other two sides',
+      );
     }
   }
 }
@@ -52,7 +55,7 @@ export class Circle implements Figure {
     this.color = color;
 
     if (radius <= 0) {
-      throw new Error('error 3');
+      throw new Error('Radius should be greater than 0');
     }
   }
 }
@@ -76,7 +79,7 @@ export class Rectangle implements Figure {
     this.color = color;
 
     if (width <= 0 || height <= 0) {
-      throw new Error('error 4');
+      throw new Error('Width and height should be greater than 0');
     }
   }
 }
